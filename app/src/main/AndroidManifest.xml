@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.pierreaverous.hermesproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_DOCUMENTS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BrowseActivity" />
+        <activity android:name=".SharedFilesActivity" />
+
+        <service
+            android:name="hermesP2P.server.HermesP2PServer"
+            android:enabled="true"
+            android:label="My Hermes P1P Server side" />
+        <service
+            android:name="hermesP2P.client.FileReceiveService"
+            android:enabled="true"
+            android:label="My Hermes P2P to receive files" />
+        <service
+            android:name="firebase.onDestroyManaging.LogOutService"
+            android:enabled="true"
+            android:label="My Service to log server out in firebase info" />
+
+        <activity android:name=".QueryResultActivity" />
+        <activity android:name=".QueryMakeActivity" />
+        <activity android:name=".FileSelectActivity" />
+    </application>
+
+</manifest>
